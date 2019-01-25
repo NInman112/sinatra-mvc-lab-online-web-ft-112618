@@ -1,16 +1,14 @@
 class PigLatinizer
 
-  def piglatin(phrase)
+  def piglatinize(phrase)
     if phrase.split(" ").length == 1
-      binding.pry
-
-      piglatinize(phrase)
+      piglatinize_word(phrase)
     else
       piglatinize_sentence(phrase)
     end
   end
 
-  def piglatinize(word)
+  def piglatinize_word(word)
     vowels = %w[a e i o u A E I O U]
     consonants = ("A".."Z").to_a + ("a".."z").to_a - vowels
 
@@ -27,7 +25,6 @@ class PigLatinizer
 
    def piglatinize_sentence(phrase)
      phrase.split.map do |word|
-       #binding.pry
        piglatinize(word)
      end.join(" ")
    end
